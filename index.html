@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice Generator</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <form id="bill-form" class="card" novalidate>
+        <h1 class="card-title">Create New Bill</h1>
+
+        <!-- Customer information -->
+        <section class="section" aria-labelledby="customer-heading">
+          <h2 id="customer-heading" class="section-label">
+            Customer Information
+          </h2>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Aayush Thapa"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="98XXXXXXXX"
+              />
+            </div>
+
+            <div class="field">
+              <label for="invoiceNumber">Invoice Number</label>
+              <input
+                type="text"
+                id="invoiceNumber"
+                name="invoiceNumber"
+                placeholder="INV-001"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="invoiceDate">Invoice Date</label>
+              <input
+                type="text"
+                id="invoiceDate"
+                name="invoiceDate"
+                placeholder="YYYY-MM-DD"
+                pattern="\d{4}-\d{2}-\d{2}"
+                required
+              />
+            </div>
+          </div>
+        </section>
+
+        <hr class="divider" />
+
+        <!-- Product details -->
+        <section class="section" aria-labelledby="product-heading">
+          <div class="section-head">
+            <h2 id="product-heading" class="section-title">Product Details</h2>
+            <span class="badge">Multiple products</span>
+          </div>
+
+          <div id="product-list">
+            <div class="product-item">
+              <div class="field">
+                <label for="productName-1">Product Name</label>
+                <input
+                  type="text"
+                  id="productName-1"
+                  name="productName"
+                  class="product-name"
+                  placeholder="Enter product name"
+                  required
+                />
+              </div>
+
+              <div class="grid-2">
+                <div class="field">
+                  <label for="quantity-1">Quantity</label>
+                  <input
+                    type="number"
+                    id="quantity-1"
+                    name="quantity"
+                    class="product-qty"
+                    placeholder="e.g. 2"
+                    min="1"
+                    step="1"
+                    required
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="price-1">Price per unit (Rs.)</label>
+                  <input
+                    type="number"
+                    id="price-1"
+                    name="price"
+                    class="product-price"
+                    placeholder="e.g. 500"
+                    min="0"
+                    step="0.01"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" id="add-product" class="btn-add">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            <span>Add Product</span>
+          </button>
+        </section>
+
+        <hr class="divider" />
+
+        <!-- Billing settings -->
+        <section class="section" aria-labelledby="billing-heading">
+          <h2 id="billing-heading" class="section-label">Billing Settings</h2>
+
+          <div class="vat-row">
+            <span class="vat-label">VAT Rate</span>
+            <span class="vat-value" id="vat-rate" data-rate="13">13%</span>
+          </div>
+          <p class="hint">
+            For this practice project, use Nepal's standard 13% VAT rate.
+          </p>
+        </section>
+
+        <button type="submit" id="generate" class="btn-generate">
+          Generate VAT Bill
+        </button>
+      </form>
+      <div id="bill-display"></div>
+    </main>
+
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="script/main.js"></script>
+  </body>
+</html>
